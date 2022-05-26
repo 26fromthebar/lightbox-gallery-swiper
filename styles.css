@@ -11,10 +11,10 @@ body {
 @keyframes open-lightbox {
   0% {
     opacity: 0;
-    transform: scale(0.1);
+    transform: scale(0);
   }
 
-  35% {
+  65% {
     opacity: 1;
   }
 
@@ -31,8 +31,8 @@ body {
     transform: scale(1);
   }
 
-  65% {
-    opacity: 1;
+  50% {
+    opacity: 0;
   }
 
   100% {
@@ -41,11 +41,6 @@ body {
     pointer-events: none;
   }
 }
-
-/* .lightbox.open {
-  opacity: 1;
-  transform: scale(1);
-} */
 
 .btn-open {
   padding: 2em 5em;
@@ -81,11 +76,11 @@ body {
 }
 
 .open {
-  animation: open-lightbox 1s ease forwards;
+  animation: open-lightbox 0.5s ease forwards;
 }
 
 .close {
-  animation: close-lightbox 1s ease forwards;
+  animation: close-lightbox 0.5s ease forwards;
 }
 
 .mySwiper2 {
@@ -139,4 +134,8 @@ body {
 
 .mySwiper .swiper-slide-thumb-active {
   opacity: 1;
+}
+
+.swiper-slide:empty {
+  display: none;
 }
