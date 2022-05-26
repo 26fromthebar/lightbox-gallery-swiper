@@ -1,0 +1,142 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: bisque;
+}
+
+@keyframes open-lightbox {
+  0% {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: all;
+  }
+}
+
+@keyframes close-lightbox {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0);
+    pointer-events: none;
+  }
+}
+
+/* .lightbox.open {
+  opacity: 1;
+  transform: scale(1);
+} */
+
+.btn-open {
+  padding: 2em 5em;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  background-color: green;
+  cursor: pointer;
+}
+
+.btn-close {
+  position: absolute;
+  top: 3rem;
+  right: 3rem;
+
+  padding: 2em 6em;
+  border-radius: 100vh;
+  cursor: pointer;
+  color: #fff;
+  background-color: maroon;
+  z-index: 999;
+}
+
+.lightbox {
+  position: absolute;
+  inset: 0;
+
+  transform: scale(0.05);
+  background-color: black;
+
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.open {
+  animation: open-lightbox 1s ease forwards;
+}
+
+.close {
+  animation: close-lightbox 1s ease forwards;
+}
+
+.mySwiper2 {
+  background-color: hsl(0, 0%, 87%);
+}
+
+.mySwiper2 {
+  background-color: hsl(0, 0%, 67%);
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.swiper {
+  width: 100%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.mySwiper2 {
+  height: 80%;
+  width: 100%;
+}
+
+.mySwiper {
+  height: 20%;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.mySwiper .swiper-slide {
+  width: fit-content;
+  height: 100%;
+  opacity: 0.4;
+}
+
+.mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
