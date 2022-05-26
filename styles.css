@@ -42,7 +42,7 @@ body {
   }
 }
 
-.btn-open {
+.btn-lightbox-open {
   padding: 2em 5em;
   border: none;
   border-radius: 10px;
@@ -51,7 +51,7 @@ body {
   cursor: pointer;
 }
 
-.btn-close {
+.btn-lightbox-close {
   position: absolute;
   top: 3rem;
   right: 3rem;
@@ -68,26 +68,23 @@ body {
   position: absolute;
   inset: 0;
 
-  transform: scale(0.05);
+  transform: scale(0);
   background-color: black;
 
   pointer-events: none;
-  opacity: 0.5;
+
+  z-index: 998;
 }
 
-.open {
+.lightbox-open {
   animation: open-lightbox 0.5s ease forwards;
 }
 
-.close {
+.lightbox-close {
   animation: close-lightbox 0.5s ease forwards;
 }
 
-.mySwiper2 {
-  background-color: hsl(0, 0%, 87%);
-}
-
-.mySwiper2 {
+.gallerySwiper {
   background-color: hsl(0, 0%, 67%);
 }
 
@@ -100,7 +97,7 @@ body {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .swiper {
@@ -115,24 +112,24 @@ body {
   background-position: center;
 }
 
-.mySwiper2 {
+.gallerySwiper {
   height: 80%;
   width: 100%;
 }
 
-.mySwiper {
+.thumbsSwiper {
   height: 20%;
   box-sizing: border-box;
   padding: 10px 0;
 }
 
-.mySwiper .swiper-slide {
+.thumbsSwiper .swiper-slide {
   width: fit-content;
   height: 100%;
-  opacity: 0.4;
+  opacity: 0.3;
 }
 
-.mySwiper .swiper-slide-thumb-active {
+.thumbsSwiper .swiper-slide-thumb-active {
   opacity: 1;
 }
 

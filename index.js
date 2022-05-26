@@ -1,11 +1,11 @@
-const swiper = new Swiper('.mySwiper', {
+const swiper = new Swiper('.thumbsSwiper', {
   spaceBetween: 10,
-  slidesPerView: 'auto',
+  slidesPerView: '4',
   freeMode: true,
   watchSlidesProgress: true,
 });
 
-const swiper2 = new Swiper('.mySwiper2', {
+const swiper2 = new Swiper('.gallerySwiper', {
   spaceBetween: 10,
   navigation: {
     nextEl: '.swiper-button-next',
@@ -16,20 +16,18 @@ const swiper2 = new Swiper('.mySwiper2', {
   },
 });
 
-const openBtn = document.querySelector('.btn-open');
-const closeBtn = document.querySelector('.btn-close');
+const openBtn = document.querySelector('.btn-lightbox-open');
+const closeBtn = document.querySelector('.btn-lightbox-close');
 
 openBtn.addEventListener('click', () => {
   const lightbox = document.querySelector('.lightbox');
-  lightbox.classList.add('open');
-  lightbox.classList.remove('close');
+  lightbox.classList.add('lightbox-open');
+  lightbox.classList.remove('lightbox-close');
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-      const lightbox = document.querySelector('.lightbox');
-
-      lightbox.classList.add('close');
-      lightbox.classList.remove('open');
+      lightbox.classList.add('lightbox-close');
+      lightbox.classList.remove('lightbox-open');
     }
   });
 });
@@ -37,6 +35,6 @@ openBtn.addEventListener('click', () => {
 closeBtn.addEventListener('click', () => {
   const lightbox = document.querySelector('.lightbox');
 
-  lightbox.classList.add('close');
-  lightbox.classList.remove('open');
+  lightbox.classList.add('lightbox-close');
+  lightbox.classList.remove('lightbox-open');
 });

@@ -16,19 +16,18 @@
   <body>
     <main>
       <!-- Open button outside the lightbox-->
-      <button class="btn-open">Open gallery</button>
+      <button class="btn-lightbox-open">Open gallery</button>
       <div class="lightbox">
         <!-- Swiper -->
-
         <div
           style="
             --swiper-navigation-color: #fff;
             --swiper-pagination-color: #fff;
           "
-          class="swiper mySwiper2"
+          class="swiper gallerySwiper"
         >
           <!-- Close button inside the lightbox-->
-          <button class="btn-close">Close gallery</button>
+          <button class="btn-lightbox-close">Close gallery</button>
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <img
@@ -89,7 +88,7 @@
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
         </div>
-        <div thumbsSlider class="swiper mySwiper">
+        <div thumbsSlider class="swiper thumbsSwiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <img
