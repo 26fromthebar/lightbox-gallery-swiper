@@ -16,8 +16,18 @@
   <body>
     <main>
       <!-- Open button outside the lightbox-->
-      <button class="btn-lightbox-open">Open gallery</button>
+      <button class="lightbox-btn-open">Open gallery</button>
+
+      <!-- Lightbox gallery start -->
       <div class="lightbox">
+        <!-- Close button inside the lightbox-->
+        <div class="lightbox-btn-close">
+          <div class="line"></div>
+        </div>
+        <!-- Next and Previous slider buttons-->
+        <div class="lightbox-btn-next"></div>
+        <div class="lightbox-btn-prev"></div>
+        <!-- Lightbox gallery start -->
         <!-- Swiper -->
         <div
           style="
@@ -26,10 +36,8 @@
           "
           class="swiper gallerySwiper"
         >
-          <!-- Close button inside the lightbox-->
-          <button class="btn-lightbox-close">Close gallery</button>
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
+          <div class="swiper-wrapper ltbox">
+            <div class="swiper-slide ltbox">
               <img
                 src="/images/403 ΕΠΙΣΚΕΠΤΕΣ - Ιστορία - Νεότερα Χρόνια 1.webp"
               />
@@ -79,18 +87,11 @@
                 src="/images/403 ΕΠΙΣΚΕΠΤΕΣ - Ιστορία - Νεότερα Χρόνια Άλμπουμ 8.webp"
               />
             </div>
-
-            <!-- <div class="swiper-slide"></div>
-            <div class="swiper-slide"></div> -->
           </div>
-
-          <!-- Next and Previous slider buttons-->
-          <div class="swiper-button-next"></div>
-          <div class="swiper-button-prev"></div>
         </div>
         <div thumbsSlider class="swiper thumbsSwiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
+          <div class="swiper-wrapper ltbox">
+            <div class="swiper-slide ltbox">
               <img
                 src="/images/403 ΕΠΙΣΚΕΠΤΕΣ - Ιστορία - Νεότερα Χρόνια 1.webp"
               />

@@ -1,14 +1,56 @@
-* {
+:root {
+  --color-secondary: #f36e23;
+  --color-secondary-light: #ffb794;
+  --color-primary: #07116b;
+  --color-primary-light: hsl(234, 88%, 40%);
+  --color-primary-extra-light: #5960a748;
+  --color-tertiary: #0e5dab;
+  --color-bg: #e5e5e5;
+  --color-bg-dark: #f8f8f8;
+  --color-grey: #999999;
+  --color-grey-light: #dddddd;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --ff-manrope: 'Manrope', sans-serif;
+  --ff-roboto: 'Roboto', sans-serif;
+  --fs-placeholder: clamp(0.875rem, 0.5rem + 1.5vw, 2rem);
+  --fs-14: clamp(0.75rem, 0.715rem + 0.16vw, 0.875rem);
+  --fs-16: clamp(0.9375rem, 0.9231rem + 0.0641vw, 1rem);
+  --fs-18: clamp(1rem, 0.925rem + 0.2vw, 1.125rem);
+  --fs-20: clamp(1rem, 0.9423rem + 0.2564vw, 1.25rem);
+  --fs-24: clamp(1.125rem, 1.1rem + 0.4vw, 1.5rem);
+  --fs-28: clamp(1.25rem, 1.1346rem + 0.5128vw, 1.75rem);
+  --fs-32: clamp(1.375rem, 1.2308rem + 0.641vw, 2rem);
+  --fs-36: clamp(1.5rem, 1.05rem + 1.2vw, 2.25rem);
+  --fs-48: clamp(1.75rem, 1.4615rem + 1.2821vw, 3rem);
+  --fs-56: clamp(1.75rem, 1.3462rem + 1.7949vw, 3.5rem);
+  --fs-64: clamp(1.75rem, 1.2308rem + 2.3077vw, 4rem);
+  --responsive-1: clamp(0.5rem, 0.3846rem + 0.5128vw, 1rem);
+  --responsive-2: clamp(1rem, 0.7692rem + 1.0256vw, 2rem);
+  --responsive-3: clamp(1.5rem, 1.1538rem + 1.5385vw, 3rem);
+  --responsive-4: clamp(2rem, 1.5385rem + 2.0513vw, 4rem);
+  --responsive-5: clamp(2.5rem, 1.9231rem + 2.5641vw, 5rem);
+  --responsive-6: clamp(3rem, 2.3077rem + 3.0769vw, 6rem);
+  --responsive-8: clamp(4rem, 3.0769rem + 4.1026vw, 8rem);
+  --responsive-10: clamp(5rem, 3.8462rem + 5.1282vw, 10rem);
+  --responsive-12: clamp(6rem, 4.6154rem + 6.1538vw, 12rem);
+  --responsive-14: clamp(7rem, 5.3846rem + 7.1795vw, 14rem);
+  --responsive-20: clamp(10rem, 7.6923rem + 10.2564vw, 20rem);
+  --responsive-30: clamp(15rem, 11.5385rem + 15.3846vw, 30rem);
+  --header-height: clamp(3.5rem, 3.2rem + 1.5vw, 5rem);
+}
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   background-color: bisque;
 }
 
-@keyframes open-lightbox {
+/* @keyframes open-lightbox {
   0% {
     opacity: 0;
     transform: scale(0);
@@ -127,6 +169,194 @@ body {
   width: fit-content;
   height: 100%;
   opacity: 0.3;
+}
+
+.thumbsSwiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.swiper-slide:empty {
+  display: none;
+} */
+
+/***********************************************/
+
+@keyframes open-lightbox {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  65% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: all;
+  }
+}
+
+@keyframes close-lightbox {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+    pointer-events: none;
+  }
+}
+
+.lightbox-btn-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: var(--responsive-1);
+  right: var(--responsive-1);
+  width: var(--responsive-5);
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+  background-color: var(--color-secondary);
+
+  cursor: pointer;
+
+  z-index: 999;
+}
+
+.lightbox-btn-close .line,
+.lightbox-btn-close .line::after {
+  height: 3px;
+  background-color: var(--color-primary);
+}
+
+.lightbox-btn-close .line {
+  width: 50%;
+  transform: rotate(-45deg);
+  position: relative;
+  transition: transform 0.75s ease;
+}
+
+.lightbox-btn-close .line::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  transform: rotate(90deg);
+  transition: transform 0.75s ease;
+}
+
+@media screen and (hover: hover) {
+  .lightbox-btn-close:hover .line {
+    transform: rotate(135deg);
+  }
+
+  .lightbox-btn-close:hover .line .line::after {
+    transform: rotate(135deg);
+  }
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+  transform: scale(0);
+  background-color: var(--color-black);
+
+  pointer-events: none;
+
+  z-index: 998;
+}
+
+.lightbox-open {
+  animation: open-lightbox 0.5s ease forwards;
+}
+
+.lightbox-close {
+  animation: close-lightbox 0.5s ease forwards;
+}
+
+.thumbsSwiper {
+  background-color: var(--color-black);
+}
+
+.gallerySwiper,
+.thumbsSwiper {
+  width: 100%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: contain;
+  background-position: center;
+}
+
+.gallerySwiper {
+  height: 80%;
+  width: 80%;
+}
+
+.gallerySwiper img {
+  display: block;
+  /* width: 100%; */
+  height: 100%;
+  object-fit: contain;
+}
+
+.thumbsSwiper {
+  height: 20%;
+  box-sizing: border-box;
+  padding: 10px 0;
+
+  background-size: cover;
+  background-position: center;
+}
+
+.thumbsSwiper .swiper-slide {
+  width: fit-content;
+  height: 100%;
+  opacity: 0.25;
+}
+
+.thumbsSwiper .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.lightbox-btn-prev,
+.lightbox-btn-next {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  width: var(--responsive-4);
+  aspect-ratio: 1;
+  background-color: maroon;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.lightbox-btn-prev {
+  left: var(--responsive-2);
+}
+
+.lightbox-btn-next {
+  right: var(--responsive-2);
 }
 
 .thumbsSwiper .swiper-slide-thumb-active {
