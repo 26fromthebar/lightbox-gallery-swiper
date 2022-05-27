@@ -1,18 +1,18 @@
-const swiper = new Swiper('.thumbsSwiper', {
+const thumbsSwiper = new Swiper('.thumbsSwiper', {
   spaceBetween: 10,
   slidesPerView: 'auto',
   freeMode: true,
   watchSlidesProgress: true,
 });
 
-const swiper2 = new Swiper('.gallerySwiper', {
+const gallerySwiper = new Swiper('.gallerySwiper', {
   spaceBetween: 10,
   navigation: {
     nextEl: '.lightbox-btn-next',
     prevEl: '.lightbox-btn-prev',
   },
   thumbs: {
-    swiper: swiper,
+    swiper: thumbsSwiper,
   },
 });
 
@@ -21,7 +21,7 @@ const closeBtn = document.querySelector('.lightbox-btn-close');
 const swiperWrapper = document.querySelector('.swiper-wrapper.ltbox');
 const body = document.querySelector('body');
 
-if (swiperWrapper.children.length !== 0) {
+if (openBtn && swiperWrapper.children.length !== 0) {
   openBtn.addEventListener('click', () => {
     const lightbox = document.querySelector('.lightbox');
     lightbox.classList.add('lightbox-open');
